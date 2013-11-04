@@ -14,7 +14,7 @@ class EmailController {
 		   to params.email
 		   from "ruth.nunez@teamcodeflux.com"
 		   subject "Hello " + params.firstName
-		   body params.firstName + " " + params.lastName + " " + params.email
+		   html g.render(template: 'mailTemplate', model: [firstName: params.firstName, lastName: params.lastName, email: params.email])
 		}
 		
 		flash.message = 'Sent.'
